@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Home from "./Page/Home";
@@ -6,7 +6,8 @@ import Category from "./Page/Category";
 import Register from "./Page/Register";
 import Login from "./Page/Login";
 import BookInsert from "./Page/BookInsert";
-import NovelWrite from "./Page/NovelWrite";
+import Novelwrite from "./Page/Novelwrite";
+
 import User from "./Page/User";
 import Forgetpassword from "./Page/Forgetpassword";
 
@@ -54,7 +55,7 @@ const Layout = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/category" element={<Category />} />
           <Route path="/bookinsert" element={<BookInsert />} />
-          <Route path="/novelwrite/:id" element={<NovelWrite />} />
+          <Route path="/novelwrite/:id" element={<Novelwrite />} />
           <Route path="/userdata" element={<User/>}/>
           <Route path="*" element={<h1 className="text-center mt-5">404 - Page Not Found</h1>} />
         </Routes>
