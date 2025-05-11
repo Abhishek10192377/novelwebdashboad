@@ -34,7 +34,7 @@ const Forgetpassword = () => {
     }
     try {
       setIsLoading(true)
-      await axios.post("http://localhost:3000/api/forget", { email })
+      await axios.post("https://novelwebbsckend.onrender/api/forget", { email })
       toast.success("OTP sent successfully to your email")
       setIsLoading(false)
 
@@ -58,7 +58,7 @@ const Forgetpassword = () => {
     }
     try {
       setIsLoading(true)
-      const response = await axios.post(" http://localhost:3000/api/verifyotp", {
+      const response = await axios.post(" https://novelwebbsckend.onrender/api/verifyotp", {
         email,
         otp,
         password

@@ -28,35 +28,35 @@ const Home = () => {
 
   // Fetch total books
   useEffect(() => {
-    axios.get("http://localhost:3000/api/books/totalbook")
+    axios.get("https://novelwebbsckend.onrender/api/books/totalbook")
       .then(response => setTotalBook(response.data.totalBooks))
       .catch(error => console.error("Error fetching total books:", error));
   }, []);
 
   // Fetch total categories
   useEffect(() => {
-    axios.get("http://localhost:3000/api/show_Totalcategory")
+    axios.get("https://novelwebbsckend.onrender/api/show_Totalcategory")
       .then(response => setTotalCategory(response.data.totalCategorys))
       .catch(error => console.error("Error fetching categories:", error));
   }, []);
 
   // Fetch total users
   useEffect(() => {
-    axios.get("http://localhost:3000/api/usertotal/show")
+    axios.get("https://novelwebbsckend.onrender/api/usertotal/show")
       .then(response => setTotalUser(response.data.totalUser))
       .catch(error => console.error("Error fetching users:", error));
   }, []);
 
   // Fetch books over time
   useEffect(() => {
-    axios.get("http://localhost:3000/api/books/showtime")
+    axios.get("https://novelwebbsckend.onrender/api/books/showtime")
       .then(response => setBookOverTime(response.data.bookData))
       .catch(error => console.error("Error fetching book over time:", error));
   }, []);
 
   // Fetch read categories
   useEffect(() => {
-    axios.get("http://localhost:3000/api/read_category")
+    axios.get("https://novelwebbsckend.onrender/api/read_category")
       .then(response => setReadCategory(response.data.data))
       .catch(error => console.error("Error fetching read categories:", error));
   }, []);
@@ -66,7 +66,7 @@ const Home = () => {
     const token = Cookies.get("token");
 
     if (token) {
-      axios.get("http://localhost:3000/api/protected", {
+      axios.get("https://novelwebbsckend.onrender/api/protected", {
         headers: {
           'Authorization': `Bearer ${token}`
         }
