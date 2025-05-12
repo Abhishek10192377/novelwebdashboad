@@ -51,7 +51,7 @@ const Login = () => {
         toast.success("Login successfully");
 
         setTimeout(() => {
-          navigate('/home');
+          navigate("/home");
           window.location.reload();
         }, 1500);
 
