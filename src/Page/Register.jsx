@@ -33,7 +33,7 @@ const Register = () => {
 
     try {
       setIsLoading(true);
-      const response = await axios.post("http://localhost:3000/api/insert", formData);
+      const response = await axios.post("https://novelwebbsckend.onrender/api/insert", formData);
       toast.success("Verification code sent to your email");
       setShowModal(true); // Show the modal to enter verification code
     } catch (error) {
@@ -51,7 +51,7 @@ const Register = () => {
 
     try {
       setIsLoading(true);
-      const response = await axios.post("http://localhost:3000/api/verify", {
+      const response = await axios.post("https://novelwebbsckend.onrender/api/verify", {
         code: verificationCode
       });
 
