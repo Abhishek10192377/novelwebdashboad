@@ -108,7 +108,7 @@ const Login = () => {
               </label>
             </div>
             <div className="mb-3 text-end fw-bold ">
-                            <Link className='text-secondary text-decoration-none' to="/forget">Forget Password?</Link>
+              <Link className='text-secondary text-decoration-none' to="/forget">Forget Password?</Link>
                           </div>
             <button type="submit" className="btn btn-primary w-100">Login</button>
             <div className="mt-2 text-center">
