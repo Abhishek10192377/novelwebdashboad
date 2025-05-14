@@ -52,7 +52,6 @@ const Login = () => {
 
         setTimeout(() => {
           navigate("/home");
-          window.location.reload();
         }, 1500);
 
         setFormData({ email: "", password: "" });
