@@ -16,7 +16,7 @@ const BookInsert = () => {
 
   const fetchCategory = async () => {
     try {
-      const response = await axios.get("https://novelwebbsckend.onrender/api/read_category");
+      const response = await axios.get("https://novelwebbsckend.onrender.com/api/read_category");
       setReadCategory(response.data.data);
     } catch (error) {
       console.error("Error fetching categories:", error);
@@ -29,7 +29,7 @@ const BookInsert = () => {
 
   const fetchBook = async () => {
     try {
-      const response = await axios.get("https://novelwebbsckend.onrender/api/books/allRead");
+      const response = await axios.get("https://novelwebbsckend.onrender.com/api/books/allRead");
       setReadBook(response.data.data);
     } catch (error) {
       console.error("Error fetching books:", error);
@@ -51,7 +51,7 @@ const BookInsert = () => {
     formData.append('category', event.target.category.value);
     formData.append('isPopular', event.target.isPopular.checked);
     try {
-      await axios.post("https://novelwebbsckend.onrender/api/books/insert", formData, {
+      await axios.post("https://novelwebbsckend.onrender.com/api/books/insert", formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       toast.success("Book inserted successfully!");
@@ -79,7 +79,7 @@ const BookInsert = () => {
     }
 
     try {
-      await axios.put(`https://novelwebbsckend.onrender/api/books/update/${editData._id}`, formData, {
+      await axios.put(`https://novelwebbsckend.onrender.com/api/books/update/${editData._id}`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       toast.success('Book Update Successfully')
@@ -95,7 +95,7 @@ const BookInsert = () => {
 
   const deleteHandler = async (id) => {
     try {
-      await axios.delete(`https://novelwebbsckend.onrender/api/books/delete/${id}`);
+      await axios.delete(`https://novelwebbsckend.onrender.com/api/books/delete/${id}`);
       fetchBook();
     } catch (error) {
       console.error("Error deleting book:", error);

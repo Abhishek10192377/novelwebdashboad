@@ -31,7 +31,7 @@ const Novelwrite = () => {
 
   const fetchNovels = async () => {
     try {
-      const res = await axios.get(`https://novelwebbsckend.onrender/api/novels/read/${id}`);
+      const res = await axios.get(`https://novelwebbsckend.onrender.com/api/novels/read/${id}`);
       const fetchdata = res.data.data;
       setNovels(fetchdata);
 
@@ -71,10 +71,10 @@ const Novelwrite = () => {
 
     try {
       if (novelExists) {
-        await axios.put(`https://novelwebbsckend.onrender/api/novels/update/${novelId}`, { message });
+        await axios.put(`https://novelwebbsckend.onrender.com/api/novels/update/${novelId}`, { message });
         toast.success("Novel updated successfully!");
       } else {
-        await axios.post("https://novelwebbsckend.onrender/api/novels/insert", { message, Book: id });
+        await axios.post("https://novelwebbsckend.onrender.com/api/novels/insert", { message, Book: id });
         toast.success("Novel inserted successfully!");
         setNovelExists(true);
         hasLoadedRef.current = false;
@@ -87,7 +87,7 @@ const Novelwrite = () => {
 
   const deleteHandler = async (id) => {
     try {
-      await axios.delete(`https://novelwebbsckend.onrender/api/novels/delete/${id}`);
+      await axios.delete(`https://novelwebbsckend.onrender.com/api/novels/delete/${id}`);
       setNovelExists(false);
       setNovelId(null);
       editorRef.current.innerHTML = "Start typing here...";

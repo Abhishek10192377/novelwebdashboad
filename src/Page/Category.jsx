@@ -12,7 +12,7 @@ const Category = () => {
 
   const fetchCategory = async () => {
     try {
-      const res = await axios.get('https://novelwebbsckend.onrender/api/read_category');
+      const res = await axios.get('https://novelwebbsckend.onrender.com/api/read_category');
       setReadCategory(res.data.data);
     } catch (err) {
       console.error('Error fetching data:', err);
@@ -33,7 +33,7 @@ const Category = () => {
     formData.append('file', e.target.file.files[0]);
 
     try {
-      await axios.post('https://novelwebbsckend.onrender/api/insert_category', formData, {
+      await axios.post('https://novelwebbsckend.onrender.com/api/insert_category', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
        toast.success("Category inserted successfully!");
@@ -57,7 +57,7 @@ const Category = () => {
     if (image) formData.append('file', image);
 
     try {
-      await axios.put(`https://novelwebbsckend.onrender/api/update_category/${editData._id}`, formData, {
+      await axios.put(`https://novelwebbsckend.onrender.com/api/update_category/${editData._id}`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       toast.success('category Update Successfully')
@@ -73,7 +73,7 @@ const Category = () => {
 
   const deleteHandler = async (id) => {
     try {
-      await axios.delete(`https://novelwebbsckend.onrender/api/delete_category/${id}`);
+      await axios.delete(`https://novelwebbsckend.onrender.com/api/delete_category/${id}`);
       fetchCategory();
     } catch (err) {
       console.error('Error deleting:', err);

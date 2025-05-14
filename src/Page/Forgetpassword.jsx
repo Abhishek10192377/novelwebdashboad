@@ -58,7 +58,7 @@ const Forgetpassword = () => {
     }
     try {
       setIsLoading(true)
-      const response = await axios.post(" https://novelwebbsckend.onrender/api/verifyotp", {
+      const response = await axios.post("https://novelwebbsckend.onrender.com/api/verifyotp", {
         email,
         otp,
         password

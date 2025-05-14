@@ -8,7 +8,7 @@ const User = () => {
     const [selectedDeleteId,setSelectedDeleteId]= useState(null)
     const fetchUserdata = async () => {
         try {
-            const response = await axios.get('https://novelwebbsckend.onrender/api/userdatashowADMIN');
+            const response = await axios.get('https://novelwebbsckend.onrender.com/api/userdatashowADMIN');
             setUsers(response.data.userdata); // Assuming response structure is { userdata: [...] }
         } catch (error) {
             console.log('Data fetch error:', error);
@@ -17,7 +17,7 @@ const User = () => {
 
     const deleteHandler = async (id) => {
         try {
-            await axios.delete(`https://novelwebbsckend.onrender/api/userdelete/${id}`)
+            await axios.delete(`https://novelwebbsckend.onrender.com/api/userdelete/${id}`)
             fetchUserdata();
         } catch (error) {
             console.error('Error deleting:', err);
