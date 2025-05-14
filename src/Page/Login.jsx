@@ -4,8 +4,9 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { Spinner } from 'react-bootstrap';
 const Login = () => {
+  const [isLoading, setIsLoading] = useState(false)
   const [formData, setFormData] = useState({
     email: "",
     password: ""
@@ -37,10 +38,10 @@ const Login = () => {
       toast.error("Invalid email format");
       return;
     }
-
+    setIsLoading(true)
     try {
-      const response = await axios.post("https://novelwebbsckend.onrender.com/api/login", formData,{
-         withCredentials: true,
+      const response = await axios.post("https://novelwebbsckend.onrender.com/api/login", formData, {
+        withCredentials: true,
       });
       const { token } = response.data;
 
@@ -62,7 +63,9 @@ const Login = () => {
       } else {
         toast.error("Login failed. Please try again.");
       }
-    }
+    }finally {
+    setIsLoading(false); 
+  }
   };
 
   return (
@@ -108,8 +111,9 @@ const Login = () => {
             </div>
             <div className="mb-3 text-end fw-bold ">
               <Link className='text-secondary text-decoration-none' to="/forget">Forget Password?</Link>
-                          </div>
-            <button type="submit" className="btn btn-primary w-100">Login</button>
+            </div>
+            <button type="submit" className="btn btn-primary w-100" disabled={isLoading}> {isLoading ? <Spinner animation='border' size='sm' /> : "Login"}</button>
+
             <div className="mt-2 text-center">
               <Link className='text-secondary text-decoration-none fw-bold' to="/">Don't have an account? Register</Link>
             </div>
