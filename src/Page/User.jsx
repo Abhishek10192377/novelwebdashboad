@@ -9,7 +9,7 @@ const User = () => {
     const fetchUserdata = async () => {
         try {
             const response = await axios.get('https://novelwebbsckend.onrender.com/api/userdatashowADMIN');
-            setUsers(response.data.userdata); // Assuming response structure is { userdata: [...] }
+            setUsers(response.data.userdata); 
         } catch (error) {
             console.log('Data fetch error:', error);
         }
